@@ -321,12 +321,12 @@ if not st.session_state.show_inputs:
         </style>
     """, unsafe_allow_html=True)
 
-col1, col2, col3 = st.columns([1, 2, 1])
-with col2:
-    if st.button("🔮", key="crystal_ball", help="Click to peer into the crystal..."):
-        st.session_state.show_inputs = True
-        st.rerun()
-    st.markdown("<div class='instruction-text'>✨ Click the crystal ball to begin ✨</div>", unsafe_allow_html=True)
+    col1, col2, col3 = st.columns([1, 2, 1])
+    with col2:
+        if st.button("🔮", key="crystal_ball", help="Click to peer into the crystal..."):
+            st.session_state.show_inputs = True
+            st.rerun()
+            st.markdown("<div class='instruction-text'>✨ Click the crystal ball to begin ✨</div>", unsafe_allow_html=True)
     
 else:
     # Show the input form

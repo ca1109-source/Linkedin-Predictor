@@ -19,6 +19,11 @@ st.markdown("""
         background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
     }
     
+    /* Remove any potential overlays */
+    .stApp::before, .stApp::after {
+        display: none !important;
+    }
+    
     /* Oracle text styling - HIGH CONTRAST */
     .oracle-text {
         font-family: 'Georgia', serif;
@@ -34,6 +39,8 @@ st.markdown("""
         line-height: 1.8;
         margin: 20px auto;
         max-width: 800px;
+        position: relative;
+        z-index: 100;
     }
     
     /* Title styling */
@@ -45,6 +52,8 @@ st.markdown("""
         letter-spacing: 5px;
         font-size: 3.5rem !important;
         margin-bottom: 30px !important;
+        position: relative;
+        z-index: 100;
     }
     
     /* Section headers */
@@ -57,6 +66,8 @@ st.markdown("""
         border: 2px solid #ffd700;
         text-align: center;
         font-size: 1.5rem !important;
+        position: relative;
+        z-index: 100;
     }
     
     /* Hooded figure */
@@ -65,6 +76,8 @@ st.markdown("""
         text-align: center;
         animation: float 3s ease-in-out infinite;
         margin: 20px 0;
+        position: relative;
+        z-index: 100;
     }
     
     @keyframes float {
@@ -82,6 +95,8 @@ st.markdown("""
         padding: 20px !important;
         display: block !important;
         margin: 0 auto !important;
+        position: relative;
+        z-index: 100;
     }
     
     @keyframes glow {
@@ -101,6 +116,8 @@ st.markdown("""
         color: #ffd700;
         font-size: 2rem;
         margin: 30px 0;
+        position: relative;
+        z-index: 100;
     }
     
     /* Input labels - MAXIMUM VISIBILITY */
@@ -113,6 +130,8 @@ st.markdown("""
         padding: 8px 12px;
         border-radius: 8px;
         border: 1px solid #ffd700;
+        position: relative;
+        z-index: 100;
     }
     
     /* Dropdown styling - DARK TEXT ON LIGHT BACKGROUND */
@@ -120,6 +139,8 @@ st.markdown("""
         background-color: #f3f4f6 !important;
         color: #1f2937 !important;
         border: 2px solid #ffd700 !important;
+        position: relative;
+        z-index: 100;
     }
     
     .stSelectbox [data-baseweb="select"] {
@@ -136,6 +157,7 @@ st.markdown("""
     /* Dropdown menu items */
     [data-baseweb="menu"] {
         background-color: #f3f4f6 !important;
+        z-index: 9999 !important;
     }
     
     [data-baseweb="menu"] li {
@@ -163,6 +185,7 @@ st.markdown("""
         max-width: 400px !important;
         padding: 12px !important;
         line-height: 1.6 !important;
+        z-index: 99999 !important;
     }
     
     .stTooltipIcon {
@@ -181,6 +204,8 @@ st.markdown("""
         box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
         margin: 30px 0;
         font-weight: 700;
+        position: relative;
+        z-index: 100;
     }
     
     .error-oracle {
@@ -194,6 +219,8 @@ st.markdown("""
         box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
         margin: 30px 0;
         font-weight: 700;
+        position: relative;
+        z-index: 100;
     }
     
     /* Instruction text */
@@ -205,6 +232,8 @@ st.markdown("""
         font-style: italic;
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
         font-weight: 600;
+        position: relative;
+        z-index: 100;
     }
     
     /* Metrics */
@@ -222,7 +251,17 @@ st.markdown("""
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
     }
     
-    /* Expander - MAXIMUM VISIBILITY */
+    /* Expander - FORCE MAXIMUM VISIBILITY */
+    details {
+        position: relative !important;
+        z-index: 100 !important;
+    }
+    
+    summary {
+        position: relative !important;
+        z-index: 100 !important;
+    }
+    
     .streamlit-expanderHeader {
         background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%) !important;
         color: #ffffff !important;
@@ -232,6 +271,10 @@ st.markdown("""
         font-size: 1.5rem !important;
         padding: 20px !important;
         text-shadow: 2px 2px 8px rgba(0, 0, 0, 1) !important;
+        position: relative !important;
+        z-index: 100 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
     
     .streamlit-expanderHeader:hover {
@@ -244,10 +287,13 @@ st.markdown("""
         font-weight: 900 !important;
         font-size: 1.5rem !important;
         margin: 0 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
     
     .streamlit-expanderHeader svg {
         fill: #ffd700 !important;
+        opacity: 1 !important;
     }
     
     /* Expander Content - FORCE WHITE TEXT */
@@ -257,39 +303,37 @@ st.markdown("""
         border: 2px solid #ffd700 !important;
         padding: 25px !important;
         margin-top: 5px !important;
+        position: relative !important;
+        z-index: 100 !important;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
     
-    .streamlit-expanderContent * {
+    .streamlit-expanderContent,
+    .streamlit-expanderContent *,
+    .streamlit-expanderContent p,
+    .streamlit-expanderContent div,
+    .streamlit-expanderContent span,
+    .streamlit-expanderContent li {
         color: #ffffff !important;
+        opacity: 1 !important;
+        visibility: visible !important;
     }
     
     .streamlit-expanderContent p {
-        color: #ffffff !important;
         font-size: 1.1rem !important;
         line-height: 1.8 !important;
+        margin-bottom: 10px !important;
     }
     
     .streamlit-expanderContent li {
-        color: #ffffff !important;
         font-size: 1.1rem !important;
         line-height: 1.8 !important;
     }
     
     .streamlit-expanderContent strong {
         color: #ffd700 !important;
-    }
-    
-    .streamlit-expanderContent ul, .streamlit-expanderContent ol {
-        color: #ffffff !important;
-    }
-    
-    /* Markdown in expanders */
-    .streamlit-expanderContent [data-testid="stMarkdownContainer"] {
-        color: #ffffff !important;
-    }
-    
-    .streamlit-expanderContent [data-testid="stMarkdownContainer"] * {
-        color: #ffffff !important;
+        font-weight: 800 !important;
     }
     
     /* Primary button */
@@ -302,11 +346,18 @@ st.markdown("""
         border: 3px solid #ffd700 !important;
         border-radius: 12px !important;
         box-shadow: 0 0 25px rgba(139, 92, 246, 0.6) !important;
+        position: relative;
+        z-index: 100;
     }
     
     .stButton > button[kind="primary"]:hover {
         box-shadow: 0 0 40px rgba(139, 92, 246, 0.9) !important;
         transform: scale(1.03);
+    }
+    
+    /* Force all text elements to be visible */
+    * {
+        opacity: 1 !important;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -729,76 +780,77 @@ if st.session_state.show_inputs:
     st.markdown("### Model Information")
     
     with st.expander("How does this model work?"):
+        st.write("")  # Force content to render
         st.markdown("""
-            This prediction model uses **Logistic Regression** trained on survey data 
-            to predict LinkedIn usage based on demographic features.
-            
-            **Features Used:**
-            
-            • Income Level (1-9 scale)
-            
-            • Education Level (1-8 scale)
-            
-            • Age
-            
-            • Parent Status
-            
-            • Marital Status
-            
-            • Gender
-            
-            
-            **Model Performance:**
-            
-            • Accuracy: 65.87%
-            
-            • Precision: 51.94%
-            
-            • Recall: 73.63%
-            
-            • F1 Score: 60.91%
+This prediction model uses **Logistic Regression** trained on survey data to predict LinkedIn usage based on demographic features.
+
+**Features Used:**
+
+- Income Level (1-9 scale)
+
+- Education Level (1-8 scale)
+
+- Age
+
+- Parent Status
+
+- Marital Status
+
+- Gender
+
+
+**Model Performance:**
+
+- Accuracy: 65.87%
+
+- Precision: 51.94%
+
+- Recall: 73.63%
+
+- F1 Score: 60.91%
         """)
     
     with st.expander("What do the scales mean?"):
+        st.write("")  # Force content to render
         st.markdown("""
-            **Income Scale (1-9):**
-            
-            1. Less than $10,000
-            
-            2. $10,000 to under $20,000
-            
-            3. $20,000 to under $30,000
-            
-            4. $30,000 to under $40,000
-            
-            5. $40,000 to under $50,000
-            
-            6. $50,000 to under $75,000
-            
-            7. $75,000 to under $100,000
-            
-            8. $100,000 to under $150,000
-            
-            9. $150,000 or more
-            
-            
-            **Education Scale (1-8):**
-            
-            1. Less than high school
-            
-            2. High school incomplete
-            
-            3. High school graduate
-            
-            4. Some college, no degree
-            
-            5. Two-year associate degree
-            
-            6. Four-year bachelor's degree
-            
-            7. Some postgraduate school
-            
-            8. Postgraduate or professional degree
+**Income Scale (1-9):**
+
+1 = Less than $10,000
+
+2 = $10,000 to under $20,000
+
+3 = $20,000 to under $30,000
+
+4 = $30,000 to under $40,000
+
+5 = $40,000 to under $50,000
+
+6 = $50,000 to under $75,000
+
+7 = $75,000 to under $100,000
+
+8 = $100,000 to under $150,000
+
+9 = $150,000 or more
+
+
+**Education Scale (1-8):**
+
+1 = Less than high school
+
+2 = High school incomplete
+
+3 = High school graduate
+
+4 = Some college, no degree
+
+5 = Two-year associate degree
+
+6 = Four-year bachelor's degree
+
+7 = Some postgraduate school
+
+8 = Postgraduate or professional degree
         """)
 
 # Footer

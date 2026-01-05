@@ -306,7 +306,7 @@ if not st.session_state.show_inputs:
     st.markdown("<br><br>", unsafe_allow_html=True)
     
     # Crystal ball button
-    col1, col2, col3 = st.columns([2, 1, 2])
+    col1, col2, col3 = st.columns([3, 1, 3])
     with col2:
         if st.button("🔮", key="crystal_ball", help="Click to begin prediction"):
             st.session_state.show_inputs = True

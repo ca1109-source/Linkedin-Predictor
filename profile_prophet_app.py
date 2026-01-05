@@ -59,14 +59,16 @@ st.markdown("""
         50% { transform: translateY(-15px); }
     }
     
-    /* Crystal ball button styling */
+      /* Crystal ball button styling */
     .stButton > button {
-        font-size: 8rem !important;
+        font-size: 6rem !important;
         background: transparent !important;
         border: none !important;
         cursor: pointer !important;
         animation: glow 2s ease-in-out infinite;
         padding: 20px !important;
+        display: block !important;
+        margin: 0 auto !important;
     }
     
     @keyframes glow {

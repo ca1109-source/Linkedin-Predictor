@@ -328,7 +328,7 @@ with col2:
         st.rerun()
     st.markdown("<div class='instruction-text'>✨ Click the crystal ball to begin ✨</div>", unsafe_allow_html=True)
     
-else:
+    else:
     # Show the input form
     st.markdown("<div class='mystical-divider'>✦ ✧ ✦</div>", unsafe_allow_html=True)
     st.markdown("""

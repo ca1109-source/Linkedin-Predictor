@@ -296,7 +296,7 @@ st.markdown("""
         opacity: 1 !important;
     }
     
-    /* Expander Content - FORCE WHITE TEXT */
+    /* Expander Content */
     .streamlit-expanderContent {
         background: rgba(30, 41, 59, 0.95) !important;
         border-radius: 10px !important;
@@ -305,35 +305,6 @@ st.markdown("""
         margin-top: 5px !important;
         position: relative !important;
         z-index: 100 !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-    
-    .streamlit-expanderContent,
-    .streamlit-expanderContent *,
-    .streamlit-expanderContent p,
-    .streamlit-expanderContent div,
-    .streamlit-expanderContent span,
-    .streamlit-expanderContent li {
-        color: #ffffff !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-    
-    .streamlit-expanderContent p {
-        font-size: 1.1rem !important;
-        line-height: 1.8 !important;
-        margin-bottom: 10px !important;
-    }
-    
-    .streamlit-expanderContent li {
-        font-size: 1.1rem !important;
-        line-height: 1.8 !important;
-    }
-    
-    .streamlit-expanderContent strong {
-        color: #ffd700 !important;
-        font-weight: 800 !important;
     }
     
     /* Primary button */
@@ -353,11 +324,6 @@ st.markdown("""
     .stButton > button[kind="primary"]:hover {
         box-shadow: 0 0 40px rgba(139, 92, 246, 0.9) !important;
         transform: scale(1.03);
-    }
-    
-    /* Force all text elements to be visible */
-    * {
-        opacity: 1 !important;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -780,78 +746,68 @@ if st.session_state.show_inputs:
     st.markdown("### Model Information")
     
     with st.expander("How does this model work?"):
-        st.write("")  # Force content to render
-        st.markdown("""
-This prediction model uses **Logistic Regression** trained on survey data to predict LinkedIn usage based on demographic features.
-
-**Features Used:**
-
-- Income Level (1-9 scale)
-
-- Education Level (1-8 scale)
-
-- Age
-
-- Parent Status
-
-- Marital Status
-
-- Gender
-
-
-**Model Performance:**
-
-- Accuracy: 65.87%
-
-- Precision: 51.94%
-
-- Recall: 73.63%
-
-- F1 Score: 60.91%
-        """)
+        # Use st.write with colored text
+        st.write("")
+        col1, col2, col3 = st.columns([0.1, 1, 0.1])
+        with col2:
+            st.markdown("""
+                <div style='background-color: #1e293b; padding: 30px; border-radius: 15px; border: 2px solid #ffd700;'>
+                    <p style='color: #ffffff; font-size: 1.2rem; line-height: 2.0; text-shadow: 2px 2px 4px #000000;'>
+                        This prediction model uses <span style='color: #ffd700; font-weight: 800;'>Logistic Regression</span> trained on survey data to predict LinkedIn usage based on demographic features.
+                    </p>
+                    
+                    <h4 style='color: #ffd700; font-size: 1.3rem; margin-top: 25px; text-shadow: 2px 2px 4px #000000;'>Features Used:</h4>
+                    <p style='color: #ffffff; font-size: 1.1rem; line-height: 2.0; text-shadow: 2px 2px 4px #000000;'>
+                        • Income Level (1-9 scale)<br>
+                        • Education Level (1-8 scale)<br>
+                        • Age<br>
+                        • Parent Status<br>
+                        • Marital Status<br>
+                        • Gender
+                    </p>
+                    
+                    <h4 style='color: #ffd700; font-size: 1.3rem; margin-top: 25px; text-shadow: 2px 2px 4px #000000;'>Model Performance:</h4>
+                    <p style='color: #ffffff; font-size: 1.1rem; line-height: 2.0; text-shadow: 2px 2px 4px #000000;'>
+                        • Accuracy: 65.87%<br>
+                        • Precision: 51.94%<br>
+                        • Recall: 73.63%<br>
+                        • F1 Score: 60.91%
+                    </p>
+                </div>
+            """, unsafe_allow_html=True)
     
     with st.expander("What do the scales mean?"):
-        st.write("")  # Force content to render
-        st.markdown("""
-**Income Scale (1-9):**
-
-1 = Less than $10,000
-
-2 = $10,000 to under $20,000
-
-3 = $20,000 to under $30,000
-
-4 = $30,000 to under $40,000
-
-5 = $40,000 to under $50,000
-
-6 = $50,000 to under $75,000
-
-7 = $75,000 to under $100,000
-
-8 = $100,000 to under $150,000
-
-9 = $150,000 or more
-
-
-**Education Scale (1-8):**
-
-1 = Less than high school
-
-2 = High school incomplete
-
-3 = High school graduate
-
-4 = Some college, no degree
-
-5 = Two-year associate degree
-
-6 = Four-year bachelor's degree
-
-7 = Some postgraduate school
-
-8 = Postgraduate or professional degree
-        """)
+        st.write("")
+        col1, col2, col3 = st.columns([0.1, 1, 0.1])
+        with col2:
+            st.markdown("""
+                <div style='background-color: #1e293b; padding: 30px; border-radius: 15px; border: 2px solid #ffd700;'>
+                    <h4 style='color: #ffd700; font-size: 1.3rem; text-shadow: 2px 2px 4px #000000;'>Income Scale (1-9):</h4>
+                    <p style='color: #ffffff; font-size: 1.1rem; line-height: 2.0; text-shadow: 2px 2px 4px #000000;'>
+                        1 = Less than $10,000<br>
+                        2 = $10,000 to under $20,000<br>
+                        3 = $20,000 to under $30,000<br>
+                        4 = $30,000 to under $40,000<br>
+                        5 = $40,000 to under $50,000<br>
+                        6 = $50,000 to under $75,000<br>
+                        7 = $75,000 to under $100,000<br>
+                        8 = $100,000 to under $150,000<br>
+                        9 = $150,000 or more
+                    </p>
+                    
+                    <h4 style='color: #ffd700; font-size: 1.3rem; margin-top: 25px; text-shadow: 2px 2px 4px #000000;'>Education Scale (1-8):</h4>
+                    <p style='color: #ffffff; font-size: 1.1rem; line-height: 2.0; text-shadow: 2px 2px 4px #000000;'>
+                        1 = Less than high school<br>
+                        2 = High school incomplete<br>
+                        3 = High school graduate<br>
+                        4 = Some college, no degree<br>
+                        5 = Two-year associate degree<br>
+                        6 = Four-year bachelor's degree<br>
+                        7 = Some postgraduate school<br>
+                        8 = Postgraduate or professional degree
+                    </p>
+                </div>
+            """, unsafe_allow_html=True)
 
 # Footer
 st.markdown("<div class='mystical-divider'>✦ ✧ ✦</div>", unsafe_allow_html=True)

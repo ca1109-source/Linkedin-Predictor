@@ -61,7 +61,7 @@ st.markdown("""
     
     /* Crystal ball button styling */
     .stButton > button {
-        font-size: 6rem !important;
+        font-size: 8rem !important;
         background: transparent !important;
         border: none !important;
         cursor: pointer !important;

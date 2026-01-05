@@ -19,11 +19,6 @@ st.markdown("""
         background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
     }
     
-    /* FORCE ALL TEXT TO BE VISIBLE */
-    * {
-        color: #ffffff !important;
-    }
-    
     /* Oracle text styling - HIGH CONTRAST */
     .oracle-text {
         font-family: 'Georgia', serif;
@@ -120,22 +115,36 @@ st.markdown("""
         border: 1px solid #ffd700;
     }
     
-    /* Dropdown styling */
+    /* Dropdown styling - DARK TEXT ON LIGHT BACKGROUND */
     .stSelectbox > div > div {
-        background-color: #1e293b !important;
-        color: #ffffff !important;
+        background-color: #f3f4f6 !important;
+        color: #1f2937 !important;
         border: 2px solid #ffd700 !important;
     }
     
     .stSelectbox [data-baseweb="select"] {
-        background-color: #1e293b !important;
+        background-color: #f3f4f6 !important;
     }
     
     .stSelectbox [data-baseweb="select"] > div {
-        background-color: #1e293b !important;
-        color: #ffffff !important;
+        background-color: #f3f4f6 !important;
+        color: #1f2937 !important;
         font-weight: 700 !important;
         font-size: 1.2rem !important;
+    }
+    
+    /* Dropdown menu items */
+    [data-baseweb="menu"] {
+        background-color: #f3f4f6 !important;
+    }
+    
+    [data-baseweb="menu"] li {
+        background-color: #f3f4f6 !important;
+        color: #1f2937 !important;
+    }
+    
+    [data-baseweb="menu"] li:hover {
+        background-color: #e5e7eb !important;
     }
     
     /* Slider styling */
@@ -143,6 +152,21 @@ st.markdown("""
         color: #ffffff !important;
         font-weight: 700 !important;
         font-size: 1.2rem !important;
+    }
+    
+    /* Tooltips - DARK BACKGROUND WITH WHITE TEXT */
+    [data-baseweb="tooltip"] {
+        background-color: #1f2937 !important;
+        color: #ffffff !important;
+        border: 2px solid #ffd700 !important;
+        font-size: 0.95rem !important;
+        max-width: 400px !important;
+        padding: 12px !important;
+        line-height: 1.6 !important;
+    }
+    
+    .stTooltipIcon {
+        color: #ffd700 !important;
     }
     
     /* Success/Error messages */
@@ -351,7 +375,16 @@ else:
             min_value=1,
             max_value=9,
             value=5,
-            help="1 = Less than $10k, 9 = $150k+"
+            help="""Income Levels:
+1 = Less than $10,000
+2 = $10,000 to under $20,000
+3 = $20,000 to under $30,000
+4 = $30,000 to under $40,000
+5 = $40,000 to under $50,000
+6 = $50,000 to under $75,000
+7 = $75,000 to under $100,000
+8 = $100,000 to under $150,000
+9 = $150,000 or more"""
         )
     
     with col2:
@@ -360,7 +393,15 @@ else:
             min_value=1,
             max_value=8,
             value=4,
-            help="1 = Less than HS, 8 = Postgraduate degree"
+            help="""Education Levels:
+1 = Less than high school
+2 = High school incomplete
+3 = High school graduate
+4 = Some college, no degree
+5 = Two-year associate degree
+6 = Four-year bachelor's degree
+7 = Some postgraduate school
+8 = Postgraduate or professional degree"""
         )
     
     st.markdown("<br>", unsafe_allow_html=True)
@@ -371,7 +412,8 @@ else:
         "Age",
         min_value=18,
         max_value=97,
-        value=42
+        value=42,
+        help="Select age between 18 and 97 years old"
     )
     
     st.markdown("<br>", unsafe_allow_html=True)
@@ -385,7 +427,8 @@ else:
             "Parent Status",
             options=[0, 1],
             format_func=lambda x: "Parent" if x == 1 else "Not a Parent",
-            index=0
+            index=0,
+            help="Select whether the person is a parent"
         )
     
     with col4:
@@ -393,7 +436,8 @@ else:
             "Marital Status",
             options=[0, 1],
             format_func=lambda x: "Married" if x == 1 else "Not Married",
-            index=0
+            index=0,
+            help="Select marital status"
         )
     
     with col5:
@@ -401,7 +445,8 @@ else:
             "Gender",
             options=[0, 1],
             format_func=lambda x: "Female" if x == 1 else "Male",
-            index=0
+            index=0,
+            help="Select gender"
         )
     
     st.markdown("<br>", unsafe_allow_html=True)

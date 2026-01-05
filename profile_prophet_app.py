@@ -321,19 +321,13 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# Make crystal ball button huge
-st.markdown("""
-    <style>
-    div.stButton > button:first-child {
-        font-size: 15rem !important;
-        height: 400px !important;
-        width: 100% !important;
-        background: transparent !important;
-        border: none !important;
-        padding: 0 !important;
-    }
-    </style>
-""", unsafe_allow_html=True)
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    if st.button("🔮", key="crystal_ball", help="Click to peer into the crystal..."):
+        st.session_state.show_inputs = True
+        st.rerun()
+    st.markdown("<div class='instruction-text'>✨ Click the crystal ball to begin ✨</div>", unsafe_allow_html=True)
+    
 else:
     # Show the input form
     st.markdown("<div class='mystical-divider'>✦ ✧ ✦</div>", unsafe_allow_html=True)

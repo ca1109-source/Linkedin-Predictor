@@ -61,7 +61,7 @@ st.markdown("""
     
       /* Crystal ball button styling */
     .stButton > button {
-        font-size: 10rem !important;
+        font-size: 15rem !important;
         background: transparent !important;
         border: none !important;
         cursor: pointer !important;
@@ -307,13 +307,25 @@ if not st.session_state.show_inputs:
     
     st.markdown("<br><br>", unsafe_allow_html=True)
     
-    # Crystal ball button
-    col1, col2, col3 = st.columns([3, 1, 3])
-    with col2:
-        if st.button("🔮", key="crystal_ball", help="Click to begin prediction"):
-            st.session_state.show_inputs = True
-            st.rerun()
-    
+    # Crystal ball button - BIGGER VERSION
+st.markdown("""
+    <style>
+    div.stButton > button {
+        font-size: 12rem !important;
+        width: 100%;
+        height: 300px;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    if st.button("🔮", key="crystal_ball", help="Click to peer into the crystal..."):
+        st.session_state.show_inputs = True
+        st.rerun()
     st.markdown("<div class='instruction-text'>✨ Click the crystal ball to begin ✨</div>", unsafe_allow_html=True)
 
 else:

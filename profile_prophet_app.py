@@ -307,19 +307,19 @@ if not st.session_state.show_inputs:
     
     st.markdown("<br><br>", unsafe_allow_html=True)
     
-    # Crystal ball button - BIGGER VERSION
-st.markdown("""
-    <style>
-    div.stButton > button {
-        font-size: 12rem !important;
-        width: 100%;
-        height: 300px;
-        border: none;
-        background: transparent;
-        cursor: pointer;
-    }
-    </style>
-""", unsafe_allow_html=True)
+ # Crystal ball button - BIGGER VERSION
+    st.markdown("""
+        <style>
+        div.stButton > button {
+            font-size: 12rem !important;
+            width: 100%;
+            height: 300px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+        </style>
+    """, unsafe_allow_html=True)
 
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:

@@ -251,50 +251,63 @@ st.markdown("""
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
     }
     
-    /* Expander - FORCE MAXIMUM VISIBILITY */
-    details {
-        position: relative !important;
-        z-index: 100 !important;
-    }
-    
-    summary {
-        position: relative !important;
-        z-index: 100 !important;
-    }
-    
-    .streamlit-expanderHeader {
-        background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%) !important;
-        color: #ffffff !important;
-        border: 3px solid #ffd700 !important;
-        border-radius: 10px !important;
-        font-weight: 900 !important;
-        font-size: 1.5rem !important;
-        padding: 20px !important;
-        text-shadow: 2px 2px 8px rgba(0, 0, 0, 1) !important;
-        position: relative !important;
-        z-index: 100 !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-    
-    .streamlit-expanderHeader:hover {
-        background: linear-gradient(135deg, #9d6eff 0%, #7477ff 100%) !important;
-        box-shadow: 0 0 20px rgba(139, 92, 246, 0.6) !important;
-    }
-    
-    .streamlit-expanderHeader p {
-        color: #ffffff !important;
-        font-weight: 900 !important;
-        font-size: 1.5rem !important;
-        margin: 0 !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-    }
-    
-    .streamlit-expanderHeader svg {
-        fill: #ffd700 !important;
-        opacity: 1 !important;
-    }
+   /* Expander - FORCE MAXIMUM VISIBILITY */
+details {
+    position: relative !important;
+    z-index: 100 !important;
+}
+
+summary {
+    position: relative !important;
+    z-index: 100 !important;
+    color: #ffffff !important;
+}
+
+.streamlit-expanderHeader {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%) !important;
+    color: #ffffff !important;
+    border: 3px solid #ffd700 !important;
+    border-radius: 10px !important;
+    font-weight: 900 !important;
+    font-size: 1.5rem !important;
+    padding: 20px !important;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 1) !important;
+    position: relative !important;
+    z-index: 100 !important;
+}
+
+.streamlit-expanderHeader:hover {
+    background: linear-gradient(135deg, #9d6eff 0%, #7477ff 100%) !important;
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.6) !important;
+}
+
+.streamlit-expanderHeader * {
+    color: #ffffff !important;
+    font-weight: 900 !important;
+    font-size: 1.5rem !important;
+}
+
+.streamlit-expanderHeader p,
+.streamlit-expanderHeader span,
+.streamlit-expanderHeader div {
+    color: #ffffff !important;
+    font-weight: 900 !important;
+    font-size: 1.5rem !important;
+    margin: 0 !important;
+}
+
+.streamlit-expanderHeader svg {
+    fill: #ffd700 !important;
+}
+
+/* Force all text in expander headers to be white */
+[data-testid="stExpander"] summary {
+    color: #ffffff !important;
+}
+
+[data-testid="stExpander"] summary * {
+    color: #ffffff !important;
+}
     
     /* Expander Content */
     .streamlit-expanderContent {

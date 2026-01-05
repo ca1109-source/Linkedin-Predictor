@@ -321,7 +321,7 @@ if not st.session_state.show_inputs:
         </style>
     """, unsafe_allow_html=True)
 
-    col1, col2, col3 = st.columns([1, 2, 1])
+    col1, col2, col3 = st.columns([5, 2, 5])
     with col2:
         if st.button("🔮", key="crystal_ball", help="Click to peer into the crystal..."):
             st.session_state.show_inputs = True

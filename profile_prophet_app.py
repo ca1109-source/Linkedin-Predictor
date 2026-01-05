@@ -27,7 +27,7 @@ st.markdown("""
         text-align: center;
         font-style: italic;
         padding: 25px;
-        background: rgba(0, 0, 0, 0.6);
+        background: rgba(0, 0, 0, 0.3);
         border-radius: 15px;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         line-height: 1.8;

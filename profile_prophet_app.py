@@ -250,9 +250,9 @@ st.markdown("""
         fill: #ffd700 !important;
     }
     
+    /* Expander Content - FORCE WHITE TEXT */
     .streamlit-expanderContent {
         background: rgba(30, 41, 59, 0.95) !important;
-        color: #ffffff !important;
         border-radius: 10px !important;
         border: 2px solid #ffd700 !important;
         padding: 25px !important;
@@ -260,6 +260,35 @@ st.markdown("""
     }
     
     .streamlit-expanderContent * {
+        color: #ffffff !important;
+    }
+    
+    .streamlit-expanderContent p {
+        color: #ffffff !important;
+        font-size: 1.1rem !important;
+        line-height: 1.8 !important;
+    }
+    
+    .streamlit-expanderContent li {
+        color: #ffffff !important;
+        font-size: 1.1rem !important;
+        line-height: 1.8 !important;
+    }
+    
+    .streamlit-expanderContent strong {
+        color: #ffd700 !important;
+    }
+    
+    .streamlit-expanderContent ul, .streamlit-expanderContent ol {
+        color: #ffffff !important;
+    }
+    
+    /* Markdown in expanders */
+    .streamlit-expanderContent [data-testid="stMarkdownContainer"] {
+        color: #ffffff !important;
+    }
+    
+    .streamlit-expanderContent [data-testid="stMarkdownContainer"] * {
         color: #ffffff !important;
     }
     
@@ -705,41 +734,70 @@ if st.session_state.show_inputs:
             to predict LinkedIn usage based on demographic features.
             
             **Features Used:**
-            - Income Level (1-9 scale)
-            - Education Level (1-8 scale)
-            - Age
-            - Parent Status
-            - Marital Status
-            - Gender
+            
+            • Income Level (1-9 scale)
+            
+            • Education Level (1-8 scale)
+            
+            • Age
+            
+            • Parent Status
+            
+            • Marital Status
+            
+            • Gender
+            
             
             **Model Performance:**
-            - Accuracy: 65.87%
-            - Precision: 51.94%
-            - Recall: 73.63%
-            - F1 Score: 60.91%
+            
+            • Accuracy: 65.87%
+            
+            • Precision: 51.94%
+            
+            • Recall: 73.63%
+            
+            • F1 Score: 60.91%
         """)
     
     with st.expander("What do the scales mean?"):
         st.markdown("""
             **Income Scale (1-9):**
+            
             1. Less than $10,000
+            
             2. $10,000 to under $20,000
+            
             3. $20,000 to under $30,000
+            
             4. $30,000 to under $40,000
+            
             5. $40,000 to under $50,000
+            
             6. $50,000 to under $75,000
+            
             7. $75,000 to under $100,000
+            
             8. $100,000 to under $150,000
+            
             9. $150,000 or more
             
+            
             **Education Scale (1-8):**
+            
             1. Less than high school
+            
             2. High school incomplete
+            
             3. High school graduate
+            
             4. Some college, no degree
+            
             5. Two-year associate degree
+            
             6. Four-year bachelor's degree
+            
             7. Some postgraduate school
+            
             8. Postgraduate or professional degree
         """)
 

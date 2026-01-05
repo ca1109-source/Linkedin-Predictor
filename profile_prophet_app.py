@@ -14,22 +14,28 @@ st.set_page_config(
 # Custom CSS for mystical theme
 st.markdown("""
     <style>
-    /* Main background */
+    /* Main background - Lighter */
     .stApp {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
     }
     
-    /* Oracle text styling */
+    /* FORCE ALL TEXT TO BE VISIBLE */
+    * {
+        color: #ffffff !important;
+    }
+    
+    /* Oracle text styling - HIGH CONTRAST */
     .oracle-text {
         font-family: 'Georgia', serif;
         font-size: 1.4rem;
-        color: #ffffff;
+        color: #ffffff !important;
         text-align: center;
         font-style: italic;
         padding: 25px;
-        background: rgba(0, 0, 0, 0.3);
+        background: rgba(15, 23, 42, 0.85) !important;
+        border: 2px solid #ffd700 !important;
         border-radius: 15px;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
         line-height: 1.8;
         margin: 20px auto;
         max-width: 800px;
@@ -39,11 +45,23 @@ st.markdown("""
     h1 {
         color: #ffd700 !important;
         text-align: center;
-        text-shadow: 0 0 30px rgba(255, 215, 0, 1), 0 0 10px rgba(255, 215, 0, 0.8);
+        text-shadow: 0 0 30px rgba(255, 215, 0, 1);
         font-family: 'Cinzel', serif;
         letter-spacing: 5px;
         font-size: 3.5rem !important;
         margin-bottom: 30px !important;
+    }
+    
+    /* Section headers */
+    h3 {
+        color: #ffd700 !important;
+        text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        background: rgba(15, 23, 42, 0.8);
+        padding: 15px;
+        border-radius: 10px;
+        border: 2px solid #ffd700;
+        text-align: center;
+        font-size: 1.5rem !important;
     }
     
     /* Hooded figure */
@@ -59,7 +77,7 @@ st.markdown("""
         50% { transform: translateY(-15px); }
     }
     
-      /* Crystal ball button styling */
+    /* Crystal ball button styling */
     .stButton > button {
         font-size: 15rem !important;
         background: transparent !important;
@@ -90,128 +108,118 @@ st.markdown("""
         margin: 30px 0;
     }
     
-    /* Input labels - HIGH VISIBILITY */
+    /* Input labels - MAXIMUM VISIBILITY */
     .stSelectbox label, .stSlider label {
         color: #ffffff !important;
-        font-size: 1.2rem !important;
-        font-weight: 700 !important;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
-        background: rgba(0, 0, 0, 0.5);
-        padding: 5px 10px;
-        border-radius: 5px;
+        font-size: 1.3rem !important;
+        font-weight: 800 !important;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.3), rgba(99, 102, 241, 0.3));
+        padding: 8px 12px;
+        border-radius: 8px;
+        border: 1px solid #ffd700;
     }
     
-    /* Dropdown styling - HIGH VISIBILITY */
+    /* Dropdown styling */
     .stSelectbox > div > div {
-        background-color: #2d3748 !important;
+        background-color: #1e293b !important;
         color: #ffffff !important;
         border: 2px solid #ffd700 !important;
     }
     
-    /* Dropdown text */
     .stSelectbox [data-baseweb="select"] {
-        background-color: #2d3748 !important;
+        background-color: #1e293b !important;
     }
     
     .stSelectbox [data-baseweb="select"] > div {
-        background-color: #2d3748 !important;
+        background-color: #1e293b !important;
         color: #ffffff !important;
-        font-weight: 600 !important;
-        font-size: 1.1rem !important;
+        font-weight: 700 !important;
+        font-size: 1.2rem !important;
     }
     
     /* Slider styling */
     .stSlider > div > div > div {
         color: #ffffff !important;
-        font-weight: 600 !important;
-        font-size: 1.1rem !important;
-    }
-    
-    /* Section headers */
-    h3 {
-        color: #ffd700 !important;
-        text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
-        background: rgba(0, 0, 0, 0.5);
-        padding: 15px;
-        border-radius: 10px;
-        text-align: center;
-        font-size: 1.5rem !important;
+        font-weight: 700 !important;
+        font-size: 1.2rem !important;
     }
     
     /* Success/Error messages */
     .success-oracle {
-        background: linear-gradient(135deg, #1a472a 0%, #2d5016 100%);
-        border: 3px solid #4ade80;
+        background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+        border: 3px solid #10b981;
         border-radius: 15px;
         padding: 30px;
         text-align: center;
         font-size: 1.6rem;
-        color: #ffffff;
-        box-shadow: 0 0 30px rgba(74, 222, 128, 0.5);
+        color: #ffffff !important;
+        box-shadow: 0 0 30px rgba(16, 185, 129, 0.6);
         margin: 30px 0;
-        font-weight: 600;
+        font-weight: 700;
     }
     
     .error-oracle {
-        background: linear-gradient(135deg, #4a1a1a 0%, #5d2d2d 100%);
+        background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
         border: 3px solid #ef4444;
         border-radius: 15px;
         padding: 30px;
         text-align: center;
         font-size: 1.6rem;
-        color: #ffffff;
-        box-shadow: 0 0 30px rgba(239, 68, 68, 0.5);
+        color: #ffffff !important;
+        box-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
         margin: 30px 0;
-        font-weight: 600;
+        font-weight: 700;
     }
     
     /* Instruction text */
     .instruction-text {
-        color: #ffd700;
+        color: #ffd700 !important;
         text-align: center;
-        font-size: 1.3rem;
+        font-size: 1.4rem;
         margin-top: 30px;
         font-style: italic;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 1);
+        font-weight: 600;
     }
     
     /* Metrics */
     [data-testid="stMetricValue"] {
         color: #ffd700 !important;
-        font-size: 2rem !important;
-        text-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+        font-size: 2.5rem !important;
+        text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+        font-weight: 700 !important;
     }
     
     [data-testid="stMetricLabel"] {
         color: #ffffff !important;
-        font-size: 1.1rem !important;
-        font-weight: 600 !important;
+        font-size: 1.2rem !important;
+        font-weight: 700 !important;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);
     }
     
-    /* Expander styling - MAXIMUM VISIBILITY */
+    /* Expander - MAXIMUM VISIBILITY */
     .streamlit-expanderHeader {
-        background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%) !important;
+        background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%) !important;
         color: #ffffff !important;
         border: 3px solid #ffd700 !important;
         border-radius: 10px !important;
-        font-weight: 800 !important;
-        font-size: 1.3rem !important;
-        padding: 15px 20px !important;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 1) !important;
+        font-weight: 900 !important;
+        font-size: 1.5rem !important;
+        padding: 20px !important;
+        text-shadow: 2px 2px 8px rgba(0, 0, 0, 1) !important;
     }
     
     .streamlit-expanderHeader:hover {
-        background: linear-gradient(135deg, #374151 0%, #1f2937 100%) !important;
-        border-color: #ffed4e !important;
-        box-shadow: 0 0 15px rgba(255, 215, 0, 0.5) !important;
+        background: linear-gradient(135deg, #9d6eff 0%, #7477ff 100%) !important;
+        box-shadow: 0 0 20px rgba(139, 92, 246, 0.6) !important;
     }
     
     .streamlit-expanderHeader p {
         color: #ffffff !important;
-        font-weight: 800 !important;
-        font-size: 1.3rem !important;
+        font-weight: 900 !important;
+        font-size: 1.5rem !important;
         margin: 0 !important;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 1) !important;
     }
     
     .streamlit-expanderHeader svg {
@@ -219,28 +227,33 @@ st.markdown("""
     }
     
     .streamlit-expanderContent {
-        background: rgba(0, 0, 0, 0.6) !important;
+        background: rgba(30, 41, 59, 0.95) !important;
         color: #ffffff !important;
         border-radius: 10px !important;
         border: 2px solid #ffd700 !important;
+        padding: 25px !important;
         margin-top: 5px !important;
     }
     
-    /* Primary button styling */
+    .streamlit-expanderContent * {
+        color: #ffffff !important;
+    }
+    
+    /* Primary button */
     .stButton > button[kind="primary"] {
         background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%) !important;
-        color: white !important;
-        font-size: 1.3rem !important;
-        font-weight: 700 !important;
-        padding: 15px 30px !important;
-        border: 2px solid #ffd700 !important;
-        border-radius: 10px !important;
-        box-shadow: 0 0 20px rgba(139, 92, 246, 0.5) !important;
+        color: #ffffff !important;
+        font-size: 1.4rem !important;
+        font-weight: 800 !important;
+        padding: 18px 35px !important;
+        border: 3px solid #ffd700 !important;
+        border-radius: 12px !important;
+        box-shadow: 0 0 25px rgba(139, 92, 246, 0.6) !important;
     }
     
     .stButton > button[kind="primary"]:hover {
-        box-shadow: 0 0 30px rgba(139, 92, 246, 0.8) !important;
-        transform: scale(1.02);
+        box-shadow: 0 0 40px rgba(139, 92, 246, 0.9) !important;
+        transform: scale(1.03);
     }
     </style>
 """, unsafe_allow_html=True)
@@ -307,26 +320,14 @@ if not st.session_state.show_inputs:
     
     st.markdown("<br><br>", unsafe_allow_html=True)
     
- # Crystal ball button - BIGGER VERSION
-    st.markdown("""
-        <style>
-        div.stButton > button {
-            font-size: 12rem !important;
-            width: 100%;
-            height: 300px;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-        }
-        </style>
-    """, unsafe_allow_html=True)
-
+    # Crystal ball button
     col1, col2, col3 = st.columns([5, 2, 5])
     with col2:
         if st.button("🔮", key="crystal_ball", help="Click to peer into the crystal..."):
             st.session_state.show_inputs = True
             st.rerun()
-            st.markdown("<div class='instruction-text'>✨ Click the crystal ball to begin ✨</div>", unsafe_allow_html=True)
+    
+    st.markdown("<div class='instruction-text'>✨ Click the crystal ball to begin ✨</div>", unsafe_allow_html=True)
     
 else:
     # Show the input form
@@ -655,51 +656,47 @@ if st.session_state.show_inputs:
     
     with st.expander("How does this model work?"):
         st.markdown("""
-            <div style='color: #ffffff; background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px;'>
-            This prediction model uses <strong>Logistic Regression</strong> trained on survey data 
+            This prediction model uses **Logistic Regression** trained on survey data 
             to predict LinkedIn usage based on demographic features.
-            <br><br>
-            <strong>Features Used:</strong><br>
-            • Income Level (1-9 scale)<br>
-            • Education Level (1-8 scale)<br>
-            • Age<br>
-            • Parent Status<br>
-            • Marital Status<br>
-            • Gender<br>
-            <br>
-            <strong>Model Performance:</strong><br>
-            • Accuracy: 65.87%<br>
-            • Precision: 51.94%<br>
-            • Recall: 73.63%<br>
-            • F1 Score: 60.91%
-            </div>
-        """, unsafe_allow_html=True)
+            
+            **Features Used:**
+            - Income Level (1-9 scale)
+            - Education Level (1-8 scale)
+            - Age
+            - Parent Status
+            - Marital Status
+            - Gender
+            
+            **Model Performance:**
+            - Accuracy: 65.87%
+            - Precision: 51.94%
+            - Recall: 73.63%
+            - F1 Score: 60.91%
+        """)
     
     with st.expander("What do the scales mean?"):
         st.markdown("""
-            <div style='color: #ffffff; background: rgba(0,0,0,0.5); padding: 20px; border-radius: 10px;'>
-            <strong>Income Scale (1-9):</strong><br>
-            1 = Less than $10,000<br>
-            2 = $10,000 to under $20,000<br>
-            3 = $20,000 to under $30,000<br>
-            4 = $30,000 to under $40,000<br>
-            5 = $40,000 to under $50,000<br>
-            6 = $50,000 to under $75,000<br>
-            7 = $75,000 to under $100,000<br>
-            8 = $100,000 to under $150,000<br>
-            9 = $150,000 or more<br>
-            <br>
-            <strong>Education Scale (1-8):</strong><br>
-            1 = Less than high school<br>
-            2 = High school incomplete<br>
-            3 = High school graduate<br>
-            4 = Some college, no degree<br>
-            5 = Two-year associate degree<br>
-            6 = Four-year bachelor's degree<br>
-            7 = Some postgraduate school<br>
-            8 = Postgraduate or professional degree
-            </div>
-        """, unsafe_allow_html=True)
+            **Income Scale (1-9):**
+            1. Less than $10,000
+            2. $10,000 to under $20,000
+            3. $20,000 to under $30,000
+            4. $30,000 to under $40,000
+            5. $40,000 to under $50,000
+            6. $50,000 to under $75,000
+            7. $75,000 to under $100,000
+            8. $100,000 to under $150,000
+            9. $150,000 or more
+            
+            **Education Scale (1-8):**
+            1. Less than high school
+            2. High school incomplete
+            3. High school graduate
+            4. Some college, no degree
+            5. Two-year associate degree
+            6. Four-year bachelor's degree
+            7. Some postgraduate school
+            8. Postgraduate or professional degree
+        """)
 
 # Footer
 st.markdown("<div class='mystical-divider'>✦ ✧ ✦</div>", unsafe_allow_html=True)

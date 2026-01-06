@@ -177,20 +177,50 @@ st.markdown("""
     }
     
     /* Tooltips - DARK BACKGROUND WITH WHITE TEXT */
-    [data-baseweb="tooltip"] {
-        background-color: #1f2937 !important;
-        color: #ffffff !important;
-        border: 2px solid #ffd700 !important;
-        font-size: 0.95rem !important;
-        max-width: 400px !important;
-        padding: 12px !important;
-        line-height: 1.6 !important;
-        z-index: 99999 !important;
-    }
-    
-    .stTooltipIcon {
-        color: #ffd700 !important;
-    }
+[data-baseweb="tooltip"] {
+    background-color: #1f2937 !important;
+    color: #ffffff !important;
+    border: 2px solid #ffd700 !important;
+    font-size: 0.95rem !important;
+    max-width: 400px !important;
+    padding: 12px !important;
+    line-height: 1.6 !important;
+    z-index: 99999 !important;
+}
+
+/* Make help icons GOLD and VISIBLE */
+.stTooltipIcon {
+    color: #ffd700 !important;
+    fill: #ffd700 !important;
+}
+
+[data-testid="stTooltipHoverTarget"] {
+    color: #ffd700 !important;
+}
+
+[data-testid="stTooltipHoverTarget"] svg {
+    color: #ffd700 !important;
+    fill: #ffd700 !important;
+}
+
+/* Target the question mark icons specifically */
+button[data-testid="stTooltipHoverTarget"] {
+    color: #ffd700 !important;
+}
+
+button[data-testid="stTooltipHoverTarget"] svg {
+    fill: #ffd700 !important;
+    stroke: #ffd700 !important;
+}
+
+/* Make sure all tooltip trigger icons are gold */
+span.css-10trblm {
+    color: #ffd700 !important;
+}
+
+span.css-10trblm svg {
+    fill: #ffd700 !important;
+}
     
     /* Success/Error messages */
     .success-oracle {
